@@ -28,35 +28,35 @@ body {
 
 /* Themes */
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --primary: #ffffff;
-  --secondary: #a1a1a1;
-  --accent: #1a1a1a;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --card-background: #09090b;
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --primary: hsl(0 0% 98%);
+  --secondary: hsl(0 0% 63%);
+  --accent: hsl(240 4% 16%);
+  --border-color: hsl(240 4% 16%);
+  --card-background: hsl(240 10% 3.9%);
   --background-gradient: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
 }
 
 .light {
-  --background: #f0f2f5;
-  --foreground: #1c1c1e;
-  --primary: #000000;
-  --secondary: #5a5a5a;
-  --accent: #ffffff;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --card-background: #ffffff;
+  --background: hsl(0 0% 98%);
+  --foreground: hsl(240 10% 3.9%);
+  --primary: hsl(240 10% 3.9%);
+  --secondary: hsl(0 0% 50%);
+  --accent: hsl(0 0% 94%);
+  --border-color: hsl(0 0% 89%);
+  --card-background: hsl(0 0% 100%);
   --background-gradient: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
 }
 
 .neon {
-  --background: #0d0221;
-  --foreground: #f0f0f0;
-  --primary: #00f5d4;
-  --secondary: #a1a1a1;
-  --accent: #261b3e;
-  --border-color: rgba(0, 245, 212, 0.2);
-  --card-background: #1a0f35;
+  --background: hsl(258 82% 9%);
+  --foreground: hsl(0 0% 95%);
+  --primary: hsl(171 100% 48%);
+  --secondary: hsl(0 0% 63%);
+  --accent: hsl(259 55% 15%);
+  --border-color: hsla(171, 100%, 48%, 0.2);
+  --card-background: hsl(262 67% 12%);
   --background-gradient: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(0, 245, 212, 0.2),#0d0221 100%);
 }
 
