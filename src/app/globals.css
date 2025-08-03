@@ -116,17 +116,55 @@ header.sticky { /* Styles applied via JavaScript when scrolled */
 section {
     min-height: 100vh; /* Each section takes at least full viewport height */
     padding: 10rem 9% 2rem; /* Adjusted padding to account for fixed header */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-heading h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(183, 75, 75, 0.5);
+}
+
+.section-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #b74b4b, #ff6347);
+    border-radius: 2px;
+}
+
+.section-heading p {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-top: 1.5rem;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
 }
 
 /* Home Section Specific Styles */
 .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row; /* Default layout for larger screens */
     gap: 8rem; /* Space between image and content */
     background-color: black;
-    padding-top: 15rem; /* More space from top for main content */
     position: relative;
     overflow: hidden; /* Ensures background effects don't spill */
 }
@@ -334,6 +372,159 @@ section {
     border-color: #ff6347; /* Change border color */
 }
 
+/* Portfolio Section Styles */
+#portfolio {
+    background-color: #080808; /* Slightly different background for depth */
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 6rem;
+}
+
+.project-card {
+    background: #111;
+    border: 2px solid #222;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.6), 0 0 40px rgba(183, 75, 75, 0.4);
+    border-color: #b74b4b;
+}
+
+.project-card .image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+}
+
+.project-card .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.project-card:hover .image-container img {
+    transform: scale(1.1);
+}
+
+.project-card .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover .image-container::after {
+    opacity: 1;
+}
+
+.project-card .project-content {
+    padding: 2.5rem;
+}
+
+.project-card .project-content h3 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #b74b4b;
+    margin-bottom: 1rem;
+}
+
+.project-card .project-content p {
+    font-size: 1.6rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.project-card .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-card .project-tags span {
+    background-color: #222;
+    color: #b74b4b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .project-tags span {
+    background-color: #b74b4b;
+    color: black;
+}
+
+/* Contact Section Styles */
+#contact {
+    background: black;
+}
+
+.contact-container {
+    max-width: 80rem;
+    margin: 6rem auto 0;
+    background-color: #111;
+    padding: 4rem;
+    border-radius: 2rem;
+    border: 2px solid #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.contact-container .input-group {
+    position: relative;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.6rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #b74b4b;
+    box-shadow: 0 0 15px rgba(183, 75, 75, 0.5);
+}
+
+.contact-container textarea {
+    min-height: 15rem;
+    resize: vertical;
+}
+
+.contact-container .btn {
+    align-self: center;
+    width: 50%;
+}
+
+
 /* Keyframe Animations */
 @keyframes cursor {
     0%, 100% { opacity: 1; } /* Cursor visible */
@@ -489,6 +680,9 @@ section {
 }
 
 @media (max-width: 768px) { /* Smaller tablets and large phones */
+    .section-heading h2 {
+        font-size: 3.8rem;
+    }
     .home-content h1 {
         font-size: 4.5rem;
     }
@@ -506,6 +700,9 @@ section {
         height: 4.5rem;
         font-size: 2.2rem;
     }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) { /* Small phones */
@@ -515,6 +712,9 @@ section {
     header {
         padding: 1.5rem 3%;
     }
+    .section-heading h2 {
+        font-size: 3.5rem;
+    }
     .home-content h1 {
         font-size: 4rem;
     }
@@ -522,11 +722,17 @@ section {
         font-size: 3rem;
     }
     .btn {
-        padding: 1rem 2.5rem;
+        padding: 1.2rem 3rem;
         font-size: 1.6rem;
     }
     .home-img img {
         width: 90vw;
         min-width: 250px; /* Ensures image isn't too small */
+    }
+    .contact-container {
+        padding: 3rem;
+    }
+    .contact-container .btn {
+        width: 100%;
     }
 }

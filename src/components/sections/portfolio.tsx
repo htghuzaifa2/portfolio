@@ -34,18 +34,15 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="container mx-auto px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <Code2 className="mx-auto h-12 w-12 text-primary" />
-        <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.
-        </p>
-      </div>
+    <section id="portfolio">
+        <div className="section-heading">
+            <h2>Featured Websites</h2>
+            <p>Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.</p>
+        </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+      <div className="portfolio-grid">
         {projects.map((project, index) => (
-          <div key={project.title} className="fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+          <div key={project.title} className="animate-on-load" style={{ animationDelay: `${index * 0.2}s` }}>
             <ProjectCard {...project} />
           </div>
         ))}
