@@ -454,7 +454,7 @@ section {
         font-size: 5.5rem;
     }
 
-    .home-content h3 {
+    .typing-text-container {
         font-size: 4rem;
     }
 
@@ -480,7 +480,7 @@ section {
     .home-content h1 {
         font-size: 4.5rem;
     }
-    .home-content h3 {
+    .typing-text-container {
         font-size: 3.5rem;
     }
     .home-content p.description-text {
@@ -506,7 +506,7 @@ section {
     .home-content h1 {
         font-size: 4rem;
     }
-    .home-content h3 {
+    .typing-text-container {
         font-size: 3rem;
     }
     .btn {
