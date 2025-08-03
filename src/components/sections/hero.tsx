@@ -62,7 +62,7 @@ const HeroSection = () => {
         </div>
         <div className="home-content animate-on-load">
           <h1>
-            Hi, I'm <span>HTG Huzaifa</span>
+            Hi, I'm <span className="text-gradient">HTG Huzaifa</span>
           </h1>
           <h3 className="typing-text-container">
             I'm a&nbsp;<TypingEffect />

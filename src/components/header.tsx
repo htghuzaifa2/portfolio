@@ -60,7 +60,9 @@ const Header = () => {
 
   return (
     <header className={cn({ 'sticky': hasScrolled })}>
-      <Link href="/#home" className="logo">HTG Huzaifa</Link>
+      <Link href="/#home" className="logo">
+        <span className="text-gradient">HTG Huzaifa</span>
+      </Link>
       
       <input type="checkbox" id="menu-toggle" checked={isMenuOpen} onChange={toggleMenu} />
       

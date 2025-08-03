@@ -5,7 +5,9 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <p className="footer-text">
-          © {new Date().getFullYear()} HTG Huzaifa. All rights reserved.
+          © {new Date().getFullYear()}{' '}
+          <span className="text-gradient">HTG Huzaifa</span>. All rights
+          reserved.
         </p>
       </div>
     </footer>
