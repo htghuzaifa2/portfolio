@@ -8,8 +8,8 @@ import { Instagram, Youtube } from 'lucide-react'
 const TypingEffect = () => {
     const [typedText, setTypedText] = useState('')
     const words = [
-        "Web Developer",
-        "SEO Optimization Specialist",
+        "Web Developer Specialist",
+        "SEO Optimization Expert",
         "Website Performance & Responsiveness Expert",
         "E-Commerce website builder Expert",
         "next-js react sattics sites Expert"
@@ -55,8 +55,8 @@ const HeroSection = () => {
            <Image
               src="https://i.postimg.cc/BvRdbqhD/logo.webp"
               alt="HTG Huzaifa Logo"
-              width={150}
-              height={150}
+              width={200}
+              height={200}
               priority
             />
         </div>

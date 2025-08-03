@@ -221,8 +221,8 @@ section {
 }
 
 .home-img img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 0.5rem solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
@@ -581,8 +581,8 @@ footer {
     }
 
     .home-img img {
-      width: 130px;
-      height: 130px;
+      width: 180px;
+      height: 180px;
     }
 }
 
@@ -597,8 +597,8 @@ footer {
         font-size: 1.8rem;
     }
     .home-img img {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
 }
 
