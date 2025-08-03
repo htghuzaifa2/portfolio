@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 0 0% 100%;
     --foreground: 222 47% 11%;
-    --card: 210 40% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
-    --popover: 210 40% 98%;
+    --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 221 52% 30%;
+    --primary: 204 95% 55%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 91%;
+    --secondary: 210 40% 96.1%;
     --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 91%;
-    --muted-foreground: 215 28% 45%;
-    --accent: 165 41% 49%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 204 95% 55%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 52% 30%;
+    --border: 214 31.8% 91.4%;
+    --input: 214 31.8% 91.4%;
+    --ring: 204 95% 55%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222 47% 14%; /* very dark blue */
+    --background: 224 71% 4%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 18%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 14%;
+    --popover: 224 71% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 165 41% 49%; /* teal */
+    --primary: 35 91% 55%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 222 47% 22%;
+    --secondary: 217 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 22%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 165 41% 49%; /* teal */
+    --muted: 217 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217 91% 60%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 222 47% 22%;
-    --input: 222 47% 22%;
-    --ring: 165 41% 49%;
+    --border: 217 32.6% 17.5%;
+    --input: 217 32.6% 17.5%;
+    --ring: 35 91% 55%;
   }
 }
 

@@ -17,7 +17,7 @@ const HeroSection = () => {
               width={150}
               height={150}
               priority
-              className="mb-6 rounded-full border-4 border-primary/50 shadow-lg"
+              className="mb-6 rounded-full border-4 border-primary/50 shadow-lg transition-transform duration-500 hover:scale-110"
             />
           </div>
           <h1 className="fade-in-up font-headline text-5xl font-extrabold tracking-tighter text-foreground sm:text-6xl md:text-7xl lg:text-8xl" style={{ animationDelay: '0.2s' }}>
@@ -27,13 +27,13 @@ const HeroSection = () => {
             A passionate developer crafting beautiful and functional web experiences. I turn ideas into interactive realities.
           </p>
           <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: '0.6s' }}>
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="transition-transform duration-300 hover:-translate-y-1">
               <Link href="/portfolio">
                 View My Work
                 <ArrowDown className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="lg" variant="secondary" asChild className="transition-transform duration-300 hover:-translate-y-1">
               <Link href="/contact">
                 Contact Me
                 <Mail className="ml-2 h-5 w-5" />
