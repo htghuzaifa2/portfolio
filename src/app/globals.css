@@ -1,127 +1,315 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
-    --card: 224 71% 4%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 0 50% 50%; /* #b74b4b */
-    --primary-foreground: 0 0% 0%; /* Black */
-    --secondary: 9 100% 64%; /* #ff6347 */
-    --secondary-foreground: 0 0% 0%; /* Black */
-    --muted: 217 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 0 50% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 50% 50%;
-    --input: 217 32.6% 17.5%;
-    --ring: 9 100% 64%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
-    --card: 224 71% 4%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 0 50% 50%; /* #b74b4b */
-    --primary-foreground: 0 0% 0%; /* Black */
-    --secondary: 9 100% 64%; /* #ff6347 */
-    --secondary-foreground: 0 0% 0%; /* Black */
-    --muted: 217 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 0 50% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 50% 50%;
-    --input: 217 32.6% 17.5%;
-    --ring: 9 100% 64%;
-  }
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    overflow-x: hidden;
-  }
+html {
+    font-size: 62.5%; /* Base font size for rem units (1rem = 10px) */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  .home::before {
+body {
+    width: 100%;
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    background-color: black;
+    color: white;
+}
+
+/* Header Styles */
+header {
+    position: fixed; /* Keeps header visible on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%; /* Padding around header content */
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between; /* Spreads logo and nav */
+    align-items: center;
+    z-index: 1000; /* Ensures header is on top of other content */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+header.sticky { /* Styles applied via JavaScript when scrolled */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+}
+
+.logo {
+    font-size: 3.2rem;
+    color: #b74b4b; /* Accent color for logo */
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+    text-shadow: 0 0 5px rgba(183, 75, 75, 0.5); /* Subtle text shadow */
+}
+
+.logo:hover {
+    transform: scale(1.08) rotate(2deg); /* Scale and slight rotation on hover */
+    color: #ff6347; /* Brighter accent on hover */
+    text-shadow: 0 0 10px #ff6347;
+}
+
+/* Navigation Styles */
+.navbar a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent; /* Initial transparent border */
+    padding-bottom: 0.5rem;
+    position: relative; /* Needed for ::before pseudo-element */
+}
+
+.navbar a::before { /* Underline animation effect */
+    content: '';
+    position: absolute;
+    width: 0; /* Starts hidden */
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #b74b4b;
+    visibility: hidden; /* Hidden until hovered/active */
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover::before,
+.navbar a.active::before {
+    visibility: visible;
+    width: 100%; /* Expands to full width on hover/active */
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #b74b4b; /* Accent color on hover/active */
+}
+
+/* Mobile Menu Toggle (Hamburger Icon) */
+#menu-toggle {
+    display: none; /* Hides the checkbox input */
+}
+
+.menu-icon {
+    font-size: 3.5rem;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown in media queries */
+    z-index: 1001; /* Ensures it's above other elements */
+    transition: transform 0.3s ease;
+}
+
+#menu-toggle:checked + .menu-icon {
+    transform: rotate(90deg); /* Rotates icon when menu is open */
+}
+
+/* Section General Styles */
+section {
+    min-height: 100vh; /* Each section takes at least full viewport height */
+    padding: 10rem 9% 2rem; /* Adjusted padding to account for fixed header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Section Specific Styles */
+.home {
+    flex-direction: row; /* Default layout for larger screens */
+    gap: 8rem; /* Space between image and content */
+    background-color: black;
+    padding-top: 15rem; /* More space from top for main content */
+    position: relative;
+    overflow: hidden; /* Ensures background effects don't spill */
+}
+
+/* Background gradient effect for the home section */
+.home::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top left, hsl(var(--primary) / 0.15) 0%, transparent 40%),
-                radial-gradient(circle at bottom right, hsl(var(--primary) / 0.15) 0%, transparent 40%);
+    background: radial-gradient(circle at top left, rgba(183, 75, 75, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(183, 75, 75, 0.15) 0%, transparent 40%);
     z-index: 0; /* Puts it behind content */
     pointer-events: none; /* Allows interaction with content below */
 }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-on-load {
-    opacity: 0; /* Hidden initially */
-    animation: fadeInUp 1s ease-out forwards;
-  }
+.home-content, .home-img {
+    position: relative; /* Ensures content is above the pseudo-element background */
+    z-index: 1;
+}
 
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 30px hsl(var(--primary)), 0 0 60px hsl(var(--primary) / 0.7);
-    }
-    100% {
-      box-shadow: 0 0 45px hsl(var(--primary)), 0 0 90px hsl(var(--primary) / 0.9);
-    }
-  }
+.home-content {
+    flex: 1; /* Allows content to take available space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text to the left */
+}
 
-  .typing-text::after {
+.home-content h1 {
+    font-size: 6.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(183, 75, 75, 0.7); /* Glow effect for heading */
+}
+
+.home-content h1 span {
+    color: #b74b4b; /* Accent color for name */
+}
+
+/* Typing Text Animation Container */
+.typing-text-container {
+    font-size: 4rem;
+    font-weight: 700;
+    min-height: 5.5rem; /* Ensures enough vertical space for text and cursor */
+    position: relative;
+    color: white;
+    display: flex; /* Use flex to align text and cursor horizontally */
+    align-items: center;
+    gap: 0.5rem; /* Space between "I'm a" and the typed word */
+}
+
+/* Styling for the dynamically typed text */
+.typing-text-container .typed-text {
+    background: linear-gradient(90deg, #b74b4b, #ff6347); /* Gradient for the typed word */
+    -webkit-background-clip: text; /* Clips background to text shape */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show background */
+    text-shadow: 0 0 15px rgba(255, 99, 71, 0.8); /* Glow for typed text */
+    transition: all 0.1s ease-out; /* Smooth transition for character changes */
+    display: inline-block; /* Essential for text rendering with gradient */
+}
+
+/* Cursor animation for typing text */
+.typing-text-container::after { /* Applies cursor to the h3 element */
     content: "";
     display: inline-block;
-    width: 3px;
-    height: 1em;
-    background-color: rgba(255, 255, 255, 0.8);
-    animation: cursor 0.7s infinite step-end;
-    margin-left: 5px;
-  }
+    width: 3px; /* Width of the cursor */
+    height: 1em; /* Height of the cursor, relative to font size of parent */
+    background-color: rgba(255, 255, 255, 0.8); /* White cursor */
+    animation: cursor 0.7s infinite step-end; /* Blinking animation */
+    margin-left: 5px; /* Space between typed text and cursor */
+}
 
-  @keyframes cursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
+/* Descriptive Text Styles */
+.home-content p.description-text {
+    font-size: 1.9rem;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    max-width: 65rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+    border-left: 5px solid #b74b4b; /* Left border highlight */
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(183, 75, 75, 0.2); /* Subtle box shadow */
+    transition: all 0.3s ease;
+}
 
-  .btn-ripple::before {
+.home-content p.description-text:hover {
+    background-color: rgba(255, 255, 255, 0.08); /* Slightly more opaque on hover */
+    box-shadow: 0 0 30px rgba(183, 75, 75, 0.4), 0 0 50px rgba(183, 75, 75, 0.2); /* Enhanced shadow */
+    transform: translateY(-5px) scale(1.01); /* Slight lift and scale on hover */
+}
+
+/* Profile Image Styles */
+.home-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.home-img img {
+    width: 32vw; /* Responsive width */
+    min-width: 280px; /* Minimum size */
+    max-width: 450px; /* Maximum size */
+    border-radius: 50%;
+    border: 0.6rem solid #b74b4b; /* Thicker accent border */
+    box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7); /* Stronger glow */
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    animation: pulse 2.5s infinite alternate ease-in-out; /* Pulsing glow animation */
+}
+
+.home-img img:hover {
+    transform: scale(1.07) perspective(1000px) rotateY(5deg); /* Zoom and 3D tilt on hover */
+    box-shadow: 0 0 45px #b74b4b, 0 0 90px rgba(183, 75, 75, 0.9); /* Even stronger glow */
+    animation-play-state: paused; /* Pause pulse on hover */
+}
+
+/* Social Icons Styles */
+.social-icons {
+    margin-bottom: 4rem;
+    display: flex;
+    gap: 1.5rem; /* Space between icons */
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy transition */
+    color: #b74b4b;
+    box-shadow: 0 0 10px rgba(183, 75, 75, 0.4); /* Subtle initial shadow */
+}
+
+.social-icons a:hover {
+    color: black;
+    transform: translateY(-0.8rem) scale(1.2); /* Lift and scale effect */
+    background-color: #b74b4b;
+    box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.5); /* Outer and inner glow */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 1.4rem 4rem;
+    background: linear-gradient(45deg, #b74b4b, #ff6347); /* Gradient background */
+    border-radius: 4rem;
+    font-size: 1.8rem;
+    color: black;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    border: 2px solid #b74b4b;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(183, 75, 75, 0.6); /* Initial shadow */
+    position: relative;
+    overflow: hidden; /* Hides overflow for ripple effect */
+    z-index: 1; /* Ensures button content is above ripple */
+}
+
+.btn span { /* Ensures button text is above the ripple effect */
+    position: relative;
+    z-index: 2;
+}
+
+.btn::before { /* Ripple effect on hover */
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3); /* White semi-transparent ripple */
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
@@ -129,10 +317,204 @@
     opacity: 0;
 }
 
-  .btn-ripple:hover::before {
-      width: 300%;
-      height: 300%;
-      opacity: 1;
-  }
+.btn:hover::before {
+    width: 300%; /* Expands to cover button */
+    height: 300%;
+    opacity: 1;
+}
 
+.btn:hover {
+    transform: scale(1.08); /* More pronounced scale */
+    background: black; /* Invert colors on hover */
+    color: #b74b4b;
+    box-shadow: 0 0 35px #b74b4b, 0 0 70px rgba(183, 75, 75, 0.9); /* Intense glow */
+    border-color: #ff6347; /* Change border color */
+}
+
+/* Keyframe Animations */
+@keyframes cursor {
+    0%, 100% { opacity: 1; } /* Cursor visible */
+    50% { opacity: 0; } /* Cursor invisible (blink) */
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 45px #b74b4b, 0 0 90px rgba(183, 75, 75, 0.9);
+    }
+}
+
+/* Entrance Animation for elements on page load */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at original position */
+    }
+}
+
+.animate-on-load { /* Class applied to elements that should animate on load */
+    opacity: 0; /* Hidden initially */
+    animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Animation delays for staggered entrance */
+.home-content.animate-on-load {
+    animation-delay: 0.2s;
+}
+.home-img.animate-on-load {
+    animation-delay: 0.4s;
+}
+.social-icons.animate-on-load {
+    animation-delay: 0.6s;
+}
+.btn.animate-on-load {
+    animation-delay: 0.8s;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%; /* Reduce base font size for larger tablets */
+    }
+    header {
+        padding: 1.5rem 5%;
+    }
+    section {
+        padding: 10rem 5% 2rem;
+    }
+    .home {
+        gap: 6rem;
+    }
+}
+
+@media (max-width: 991px) { /* Tablets and smaller laptops */
+    .menu-icon {
+        display: block; /* Show hamburger icon */
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%; /* Positions nav below header */
+        right: -100%; /* Hides nav off-screen initially */
+        width: 65%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 2rem 0;
+        background-color: #161616;
+        transition: right 0.4s ease-in-out; /* Smooth slide-in transition */
+        display: flex;
+        flex-direction: column; /* Stacks nav links vertically */
+        align-items: center;
+    }
+
+    #menu-toggle:checked ~ .navbar {
+        right: 0; /* Slides nav into view */
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2.2rem;
+        margin: 1.5rem 0;
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: none; /* Remove underline for mobile menu items */
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+        color: black;
+        background-color: #b74b4b;
+        border-radius: 0.5rem;
+    }
+    .navbar a::before {
+        display: none;
+    }
+
+    .home {
+        flex-direction: column-reverse; /* Stacks content, image on top */
+        text-align: center;
+        gap: 5rem;
+        padding-top: 12rem;
+    }
+
+    .home-content {
+        align-items: center; /* Centers text content on mobile */
+    }
+
+    .home-content h1 {
+        font-size: 5.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 4rem;
+    }
+
+    .home-content p.description-text {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+        border-left: none; /* Remove left border */
+        border-top: 3px solid #b74b4b; /* Add top border for mobile */
+        max-width: 90%;
+    }
+
+    .home-img img {
+        width: 75vw;
+        margin-top: 4rem;
+    }
+    .social-icons {
+        margin-top: 2.5rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) { /* Smaller tablets and large phones */
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
+    .home-content h3 {
+        font-size: 3.5rem;
+    }
+    .home-content p.description-text {
+        font-size: 1.7rem;
+    }
+    .home-img img {
+        width: 85vw;
+    }
+    .social-icons a {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) { /* Small phones */
+    html {
+        font-size: 48%; /* Even smaller base font */
+    }
+    header {
+        padding: 1.5rem 3%;
+    }
+    .home-content h1 {
+        font-size: 4rem;
+    }
+    .home-content h3 {
+        font-size: 3rem;
+    }
+    .btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.6rem;
+    }
+    .home-img img {
+        width: 90vw;
+        min-width: 250px; /* Ensures image isn't too small */
+    }
 }
