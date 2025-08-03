@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 204 95% 55%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96.1%;
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 50% 50%; /* #b74b4b */
+    --primary-foreground: 0 0% 0%; /* Black */
+    --secondary: 9 100% 64%; /* #ff6347 */
+    --secondary-foreground: 0 0% 0%; /* Black */
+    --muted: 217 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 204 95% 55%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --accent: 0 50% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 31.8% 91.4%;
-    --input: 214 31.8% 91.4%;
-    --ring: 204 95% 55%;
+    --border: 0 50% 50%;
+    --input: 217 32.6% 17.5%;
+    --ring: 9 100% 64%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 224 71% 4%;
     --card-foreground: 210 40% 98%;
     --popover: 224 71% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 35 91% 55%;
-    --primary-foreground: 222 47% 11%;
-    --secondary: 217 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 0 50% 50%; /* #b74b4b */
+    --primary-foreground: 0 0% 0%; /* Black */
+    --secondary: 9 100% 64%; /* #ff6347 */
+    --secondary-foreground: 0 0% 0%; /* Black */
     --muted: 217 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 50% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 217 32.6% 17.5%;
+    --border: 0 50% 50%;
     --input: 217 32.6% 17.5%;
-    --ring: 35 91% 55%;
+    --ring: 9 100% 64%;
   }
 }
 
@@ -55,9 +55,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 
-  @keyframes fade-in-up {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, hsl(var(--primary) / 0.15) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, hsl(var(--primary) / 0.15) 0%, transparent 40%);
+    z-index: 0; /* Puts it behind content */
+    pointer-events: none; /* Allows interaction with content below */
+}
+
+  @keyframes fadeInUp {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -67,8 +85,54 @@
       transform: translateY(0);
     }
   }
-
-  .fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
+  .animate-on-load {
+    opacity: 0; /* Hidden initially */
+    animation: fadeInUp 1s ease-out forwards;
   }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 30px hsl(var(--primary)), 0 0 60px hsl(var(--primary) / 0.7);
+    }
+    100% {
+      box-shadow: 0 0 45px hsl(var(--primary)), 0 0 90px hsl(var(--primary) / 0.9);
+    }
+  }
+
+  .typing-text::after {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: cursor 0.7s infinite step-end;
+    margin-left: 5px;
+  }
+
+  @keyframes cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .btn-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+    z-index: 0;
+    opacity: 0;
+}
+
+  .btn-ripple:hover::before {
+      width: 300%;
+      height: 300%;
+      opacity: 1;
+  }
+
 }
