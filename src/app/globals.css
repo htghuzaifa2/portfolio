@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 /* Universal Styles */
 * {
     margin: 0;
@@ -11,16 +13,16 @@
 
 html {
     font-size: 62.5%; /* Base font size for rem units (1rem = 10px) */
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
 }
 
 body {
     width: 100%;
-    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    min-height: 100vh;
     background-color: #000000;
     background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
     color: white;
-    overscroll-behavior-y: contain; /* Prevents "bounce" on scroll */
+    overscroll-behavior-y: contain;
 }
 
 /* Scrollbar Styles */
@@ -41,27 +43,26 @@ body {
     background: #6c6c6c;
 }
 
-
 /* Header Styles */
 header {
-    position: fixed; /* Keeps header visible on scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 9%; /* Padding around header content */
+    padding: 2rem 9%;
     background-color: transparent;
     display: flex;
-    justify-content: space-between; /* Spreads logo and nav */
+    justify-content: space-between;
     align-items: center;
-    z-index: 1000; /* Ensures header is on top of other content */
+    z-index: 1000;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
 }
 
-header.sticky { /* Styles applied via JavaScript when scrolled */
+header.sticky {
     padding: 1.5rem 9%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -100,26 +101,26 @@ header.sticky { /* Styles applied via JavaScript when scrolled */
 
 /* Mobile Menu Toggle (Hamburger Icon) */
 #menu-toggle {
-    display: none; /* Hides the checkbox input */
+    display: none;
 }
 
 .menu-icon {
     font-size: 3.5rem;
     color: white;
     cursor: pointer;
-    display: none; /* Hidden by default, shown in media queries */
-    z-index: 1001; /* Ensures it's above other elements */
+    display: none;
+    z-index: 1001;
     transition: transform 0.3s ease;
 }
 
 #menu-toggle:checked + .menu-icon {
-    transform: rotate(90deg); /* Rotates icon when menu is open */
+    transform: rotate(90deg);
 }
 
 /* Section General Styles */
 section {
-    min-height: 100vh; /* Each section takes at least full viewport height */
-    padding: 12rem 9% 4rem; /* Adjusted padding to account for fixed header */
+    min-height: 100vh;
+    padding: 12rem 9% 4rem;
 }
 
 .section-heading {
@@ -292,10 +293,10 @@ section {
     background-color: #000000;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+.portfolio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 6rem;
 }
 
@@ -304,6 +305,8 @@ section {
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 500px;
 }
 
 .project-card-link:hover {
@@ -596,9 +599,6 @@ footer {
     .home-img img {
         width: 120px;
         height: 120px;
-    }
-    .portfolio-grid {
-        grid-template-columns: 1fr;
     }
 }
 

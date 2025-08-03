@@ -16,10 +16,10 @@ const PortfolioSection = () => {
     <section id="portfolio">
         <div className="section-heading">
             <h2>MY PROJECTS</h2>
-            <p>Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.</p>
+            <p>Here is a project I'm proud of. It represents a challenge I was excited to tackle.</p>
         </div>
 
-      <div className="portfolio-grid">
+      <div className="portfolio-container">
         {projects.map((project, index) => (
           <div key={project.title} className="animate-on-load" style={{ animationDelay: `${index * 0.2}s` }}>
             <ProjectCard {...project} />
