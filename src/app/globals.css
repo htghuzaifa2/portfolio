@@ -326,6 +326,22 @@ section {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.btn.btn-secondary {
+    background-color: transparent;
+    border-color: var(--primary);
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--accent);
+}
 
 /* Portfolio Section Styles */
 #portfolio {
@@ -550,8 +566,7 @@ footer {
 
 .home-content.animate-on-load { animation-delay: 0.2s; }
 .home-img.animate-on-load { animation-delay: 0s; }
-.social-icons.animate-on-load { animation-delay: 0.4s; }
-.btn.animate-on-load { animation-delay: 0.6s; }
+.button-group.animate-on-load { animation-delay: 0.4s; }
 
 
 /* Media Queries for Responsiveness */
