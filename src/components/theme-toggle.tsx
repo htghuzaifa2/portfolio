@@ -15,23 +15,29 @@ export function ThemeToggle() {
   }, [])
 
   const toggleTheme = () => {
-    // Ensure 'dark' is a valid theme before finding its index
     const currentTheme = themes.includes(theme) ? theme : 'dark';
     const currentIndex = themes.indexOf(currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);
   }
 
-  if (!mounted) {
-    // Render a placeholder or null on the server and initial client render
-    return <Button variant="ghost" size="icon" aria-label="Toggle theme" disabled />
-  }
-
   return (
-    <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
-      {theme === 'light' && <Sun className="h-[1.8rem] w-[1.8rem] transition-all" />}
-      {theme === 'dark' && <Moon className="h-[1.8rem] w-[1.8rem] transition-all" />}
-      {theme === 'neon' && <Sparkles className="h-[1.8rem] w-[1.8rem] transition-all" />}
+    <Button 
+      variant="ghost" 
+      size="icon" 
+      onClick={toggleTheme} 
+      aria-label="Toggle theme"
+      className="bg-transparent hover:bg-transparent"
+    >
+      {mounted ? (
+        <>
+          {theme === 'light' && <Sun className="h-[1.8rem] w-[1.8rem] transition-all" />}
+          {theme === 'dark' && <Moon className="h-[1.8rem] w-[1.8rem] transition-all" />}
+          {theme === 'neon' && <Sparkles className="h-[1.8rem] w-[1.8rem] transition-all" />}
+        </>
+      ) : (
+        <div className="h-[1.8rem] w-[1.8rem]" />
+      )}
     </Button>
   )
 }
