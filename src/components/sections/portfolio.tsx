@@ -4,7 +4,7 @@ const projects = [
   {
     title: 'E-Commerce Website - huzi.pk',
     description: 'A modern and performant e-commerce platform built with the latest web technologies, offering a seamless shopping experience.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://i.postimg.cc/k4HhM8Cq/huzi-pk.webp',
     imageHint: 'e-commerce website',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'Radix UI', 'shadcn/ui', 'Lucide', 'Vercel', 'Cloudflare'],
     url: 'https://huzi.pk',
