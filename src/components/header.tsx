@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -46,9 +47,13 @@ const Header = () => {
     }
 
     window.addEventListener('scroll', handleScroll);
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasScrolled, activeLink]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = '';
+    }
+  }, [hasScrolled, activeLink, isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,10 +69,8 @@ const Header = () => {
         <span className="text-gradient">HTG Huzaifa</span>
       </Link>
       
-      <input type="checkbox" id="menu-toggle" checked={isMenuOpen} onChange={toggleMenu} />
-      
       <div className="header-right">
-        <nav className="navbar">
+        <nav className={cn('navbar', { 'open': isMenuOpen })}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -80,7 +83,9 @@ const Header = () => {
           ))}
         </nav>
         <ThemeToggle />
-        <label htmlFor="menu-toggle" className="menu-icon">&#9776;</label>
+        <button id="menu-toggle" className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
+          {isMenuOpen ? <X /> : <Menu />}
+        </button>
       </div>
     </header>
   )
