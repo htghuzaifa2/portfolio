@@ -19,11 +19,47 @@ html {
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: #000000;
-    background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
-    color: white;
+    background-color: var(--background);
+    background-image: var(--background-gradient);
+    color: var(--foreground);
     overscroll-behavior-y: contain;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Themes */
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --secondary: #a1a1a1;
+  --accent: #1a1a1a;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-background: #09090b;
+  --background-gradient: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
+}
+
+.light {
+  --background: #f0f2f5;
+  --foreground: #1c1c1e;
+  --primary: #000000;
+  --secondary: #5a5a5a;
+  --accent: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-background: #ffffff;
+  --background-gradient: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
+}
+
+.neon {
+  --background: #0d0221;
+  --foreground: #f0f0f0;
+  --primary: #00f5d4;
+  --secondary: #a1a1a1;
+  --accent: #261b3e;
+  --border-color: rgba(0, 245, 212, 0.2);
+  --card-background: #1a0f35;
+  --background-gradient: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(0, 245, 212, 0.2),#0d0221 100%);
+}
+
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
@@ -31,7 +67,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #000;
+    background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -67,7 +103,7 @@ header.sticky {
 
 .logo {
     font-size: 2.8rem;
-    color: #ffffff; 
+    color: var(--primary); 
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
@@ -75,13 +111,19 @@ header.sticky {
 
 .logo:hover {
     transform: scale(1.05);
-    color: #cccccc;
+    color: var(--secondary);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 /* Navigation Styles */
 .navbar a {
     font-size: 1.7rem;
-    color: #a1a1a1;
+    color: var(--secondary);
     margin-left: 3.5rem;
     font-weight: 500;
     transition: 0.3s ease;
@@ -92,11 +134,11 @@ header.sticky {
 
 .navbar a:hover,
 .navbar a.active {
-    color: #ffffff;
+    color: var(--primary);
 }
 
 .navbar a.active {
-   border-bottom-color: #ffffff;
+   border-bottom-color: var(--primary);
 }
 
 /* Mobile Menu Toggle (Hamburger Icon) */
@@ -106,7 +148,7 @@ header.sticky {
 
 .menu-icon {
     font-size: 3.5rem;
-    color: white;
+    color: var(--primary);
     cursor: pointer;
     display: none;
     z-index: 1001;
@@ -131,7 +173,7 @@ section {
 .section-heading h2 {
     font-size: 4.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -141,7 +183,7 @@ section {
 
 .section-heading p {
     font-size: 1.8rem;
-    color: #a1a1a1;
+    color: var(--secondary);
     margin-top: 1.5rem;
     max-width: 70rem;
     margin-left: auto;
@@ -177,11 +219,11 @@ section {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: var(--foreground);
 }
 
 .home-content h1 span {
-    color: #d1d1d1;
+    color: var(--secondary);
 }
 
 /* Typing Text Animation Container */
@@ -189,7 +231,7 @@ section {
     font-size: 2.8rem;
     font-weight: 500;
     min-height: 4rem;
-    color: #a1a1a1;
+    color: var(--secondary);
     display: flex;
     align-items: baseline;
     gap: 1rem;
@@ -198,7 +240,7 @@ section {
 }
 
 .typing-text-container .typed-text {
-    color: #ffffff;
+    color: var(--primary);
     font-weight: 600;
 }
 
@@ -208,7 +250,7 @@ section {
     display: inline-block;
     width: 2px;
     height: 0.9em;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--primary);
     animation: cursor 0.7s infinite step-end;
     margin-left: 6px;
     vertical-align: baseline;
@@ -221,10 +263,10 @@ section {
 }
 
 .home-img img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    border: 0.5rem solid rgba(255, 255, 255, 0.1);
+    border: 0.5rem solid var(--border-color);
     box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
     transition: all 0.4s ease-in-out;
 }
@@ -249,32 +291,32 @@ section {
     width: 4.5rem;
     height: 4.5rem;
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--border-color);
     font-size: 2rem;
     border-radius: 50%;
     transition: all 0.3s ease;
-    color: #a1a1a1;
+    color: var(--secondary);
 }
 
 .social-icons a:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--primary);
+    background-color: var(--accent);
+    border-color: var(--primary);
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--primary);
 }
 
 /* Button Styles */
 .btn {
     display: inline-block;
     padding: 1.2rem 3.5rem;
-    background: #1a1a1a;
+    background: var(--accent);
     border-radius: 3rem;
     font-size: 1.6rem;
-    color: #ffffff;
+    color: var(--primary);
     letter-spacing: 0.05rem;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -282,15 +324,15 @@ section {
 
 .btn:hover {
     transform: scale(1.05) translateY(-3px);
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--background);
+    border-color: var(--primary);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 
 /* Portfolio Section Styles */
 #portfolio {
-    background-color: #000000;
+    background-color: var(--background);
 }
 
 .portfolio-container {
@@ -314,8 +356,8 @@ section {
 }
 
 .project-card {
-    background: #09090b;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
     border-radius: 1.5rem;
     overflow: hidden;
     transition: border-color 0.3s ease;
@@ -324,14 +366,14 @@ section {
 }
 
 .project-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary);
 }
 
 .project-card .image-container {
     position: relative;
     overflow: hidden;
     aspect-ratio: 16 / 10;
-    background-color: #1a1a1a;
+    background-color: var(--accent);
 }
 
 .project-card .image-container img {
@@ -352,13 +394,13 @@ section {
 .project-card .project-content h3 {
     font-size: 2.2rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
 .project-card .project-content p {
     font-size: 1.5rem;
-    color: #a1a1a1;
+    color: var(--secondary);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -370,27 +412,27 @@ section {
 }
 
 .project-card .project-tags span {
-    background-color: #1c1c1c;
-    color: #a1a1a1;
+    background-color: var(--accent);
+    color: var(--secondary);
     padding: 0.5rem 1.2rem;
     border-radius: 2rem;
     font-size: 1.2rem;
     font-weight: 500;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--border-color);
 }
 
 /* Contact Section Styles */
 #contact {
-    background-color: #000000;
+    background-color: var(--background);
 }
 
 .contact-container {
     max-width: 70rem;
     margin: 6rem auto 0;
-    background-color: #09090b;
+    background-color: var(--card-background);
     padding: 4rem;
     border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
@@ -408,18 +450,18 @@ section {
 .contact-container textarea {
     width: 100%;
     padding: 1.5rem;
-    background-color: #000000;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
     border-radius: 1rem;
-    color: white;
+    color: var(--foreground);
     font-size: 1.6rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-container input:focus,
 .contact-container textarea:focus {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 10px rgba(120, 119, 198, 0.2);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
 }
 
 .contact-container textarea {
@@ -441,10 +483,10 @@ section {
 
 /* Footer Styles */
 footer {
-    background-color: #000000;
+    background-color: var(--background);
     padding: 4rem 9% 3rem;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -456,7 +498,7 @@ footer {
 
 .footer-text {
     font-size: 1.5rem;
-    color: #a1a1a1;
+    color: var(--secondary);
 }
 
 .footer-social-icons {
@@ -471,19 +513,19 @@ footer {
     width: 4rem;
     height: 4rem;
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--border-color);
     font-size: 2rem;
     border-radius: 50%;
     transition: all 0.3s ease;
-    color: #a1a1a1;
+    color: var(--secondary);
 }
 
 .footer-social-icons a:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--primary);
+    background-color: var(--accent);
+    border-color: var(--primary);
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--primary);
 }
 
 
@@ -539,8 +581,8 @@ footer {
         padding: 2rem 0;
         background-color: rgba(0, 0, 0, 0.9);
         backdrop-filter: blur(10px);
-        border-left: 1px solid rgba(255,255,255,0.1);
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-left: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
         border-bottom-left-radius: 1rem;
         transition: right 0.4s ease-in-out;
         display: flex;
@@ -548,7 +590,7 @@ footer {
         align-items: center;
     }
 
-    #menu-toggle:checked ~ .navbar {
+    #menu-toggle:checked ~ .header-right .navbar {
         right: 0;
     }
 
@@ -598,6 +640,9 @@ footer {
     .home-img img {
         width: 150px;
         height: 150px;
+    }
+    .navbar {
+      width: 100%;
     }
 }
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -37,12 +38,15 @@ const Header = () => {
         }
       }
 
-      if (currentSection !== activeLink) {
-        setActiveLink(currentSection || '/#home');
+      if (currentSection && currentSection !== activeLink) {
+        setActiveLink(currentSection);
+      } else if (!currentSection && window.scrollY < 200) {
+        setActiveLink('/#home');
       }
     }
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolled, activeLink]);
 
@@ -59,20 +63,23 @@ const Header = () => {
       <Link href="/#home" className="logo">HTG Huzaifa</Link>
       
       <input type="checkbox" id="menu-toggle" checked={isMenuOpen} onChange={toggleMenu} />
-      <label htmlFor="menu-toggle" className="menu-icon">&#9776;</label>
-
-      <nav className="navbar">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={handleLinkClick}
-            className={cn({ active: activeLink === link.href })}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
+      
+      <div className="header-right">
+        <nav className="navbar">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={handleLinkClick}
+              className={cn({ active: activeLink === link.href })}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <ThemeToggle />
+        <label htmlFor="menu-toggle" className="menu-icon">&#9776;</label>
+      </div>
     </header>
   )
 }
