@@ -1,13 +1,13 @@
-import Header from '@/components/header';
 import Footer from '@/components/footer';
-import HeroSection from '@/components/sections/hero';
+import Header from '@/components/header';
+import PortfolioSection from '@/components/sections/portfolio';
 
-export default function Home() {
+export default function PortfolioPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <PortfolioSection />
       </main>
       <Footer />
     </div>

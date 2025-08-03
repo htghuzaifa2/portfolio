@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowDown, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 const HeroSection = () => {
   return (
@@ -27,16 +28,16 @@ const HeroSection = () => {
           </p>
           <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: '0.6s' }}>
             <Button size="lg" asChild>
-              <a href="#portfolio">
+              <Link href="/portfolio">
                 View My Work
                 <ArrowDown className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <a href="#contact">
+              <Link href="/contact">
                 Contact Me
                 <Mail className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

@@ -40,7 +40,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="w-full bg-card py-16 md:py-24">
+    <section id="contact" className="w-full py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <Mail className="mx-auto h-12 w-12 text-primary" />
