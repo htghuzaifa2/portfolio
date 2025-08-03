@@ -266,14 +266,11 @@ section {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    border: 0.5rem solid var(--border-color);
-    box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
     transition: all 0.4s ease-in-out;
 }
 
 .home-img img:hover {
     transform: scale(1.07);
-    box-shadow: 0 0 70px rgba(120, 119, 198, 0.8);
 }
 
 
