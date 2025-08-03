@@ -22,13 +22,14 @@ const siteUrl = 'https://htghuzaifa.huzi.pk';
 
 export const metadata: Metadata = {
   title: 'HTG Huzaifa - Portfolio',
-  description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
+  description: 'The professional portfolio of HTG Huzaifa, a creative developer specializing in Next.js, React, and modern web technologies. Explore projects and get in touch.',
+  keywords: ['HTG Huzaifa', 'Portfolio', 'Web Developer', 'Next.js', 'React', 'Tailwind CSS', 'Freelancer', 'huzi.pk'],
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: 'website',
     url: siteUrl,
     title: 'HTG Huzaifa - Portfolio',
-    description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
+    description: 'The professional portfolio of HTG Huzaifa, a creative developer specializing in Next.js, React, and modern web technologies.',
     images: [
       {
         url: 'https://i.postimg.cc/BvRdbqhD/logo.webp',
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HTG Huzaifa - Portfolio',
-    description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
-    images: [`${siteUrl}/og-image.png`],
+    description: 'The professional portfolio of HTG Huzaifa, a creative developer specializing in Next.js, React, and modern web technologies.',
+    images: ['https://i.postimg.cc/BvRdbqhD/logo.webp'],
   },
 };
 

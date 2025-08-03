@@ -8,11 +8,11 @@ import { Instagram, Youtube } from 'lucide-react'
 const TypingEffect = () => {
     const [typedText, setTypedText] = useState('')
     const words = [
-        "Web Developer Specialist",
-        "SEO Optimization Expert",
-        "Website Performance & Responsiveness Expert",
-        "E-Commerce website builder Expert",
-        "next-js react sattics sites Expert"
+        "Web Developer",
+        "SEO Expert",
+        "Performance Specialist",
+        "E-Commerce Builder",
+        "Next.js Developer"
     ];
     
     useEffect(() => {
@@ -54,7 +54,7 @@ const HeroSection = () => {
        <div className="home-img animate-on-load">
            <Image
               src="https://i.postimg.cc/BvRdbqhD/logo.webp"
-              alt="HTG Huzaifa Logo"
+              alt="HTG Huzaifa Portfolio Logo"
               width={200}
               height={200}
               priority
@@ -62,7 +62,7 @@ const HeroSection = () => {
         </div>
         <div className="home-content animate-on-load">
           <h1>
-            Hi, It's <span>HTG Huzaifa</span>
+            Hi, I'm <span>HTG Huzaifa</span>
           </h1>
           <h3 className="typing-text-container">
             I'm a&nbsp;<TypingEffect />
