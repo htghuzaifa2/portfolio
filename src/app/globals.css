@@ -232,11 +232,10 @@ section {
     font-size: 4rem;
     font-weight: 700;
     min-height: 5.5rem; /* Ensures enough vertical space for text and cursor */
-    position: relative;
     color: white;
     display: flex; /* Use flex to align text and cursor horizontally */
-    align-items: center;
-    gap: 0.5rem; /* Space between "I'm a" and the typed word */
+    align-items: baseline;
+    gap: 1rem; /* Space between "I'm a" and the typed word */
 }
 
 /* Styling for the dynamically typed text */
@@ -251,14 +250,15 @@ section {
 }
 
 /* Cursor animation for typing text */
-.typing-text-container::after { /* Applies cursor to the h3 element */
+.typing-text-container .typed-text::after {
     content: "";
     display: inline-block;
-    width: 3px; /* Width of the cursor */
-    height: 1em; /* Height of the cursor, relative to font size of parent */
-    background-color: rgba(255, 255, 255, 0.8); /* White cursor */
-    animation: cursor 0.7s infinite step-end; /* Blinking animation */
-    margin-left: 5px; /* Space between typed text and cursor */
+    width: 3px;
+    height: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: cursor 0.7s infinite step-end;
+    margin-left: 8px;
+    vertical-align: baseline;
 }
 
 /* Descriptive Text Styles */
@@ -731,6 +731,7 @@ footer {
 
     .typing-text-container {
         font-size: 4rem;
+        justify-content: center;
     }
 
     .home-content p.description-text {

@@ -65,7 +65,7 @@ const HeroSection = () => {
             Hi, It's <span>HTG Huzaifa</span>
           </h1>
           <h3 className="typing-text-container">
-            I'm a <TypingEffect />
+            I'm a&nbsp;<TypingEffect />
           </h3>
           <p className="description-text">
             The path isn't always clear, but the journey itself reveals who you're meant to be. I embrace the unfolding.
