@@ -8,6 +8,11 @@ import { Button } from '@/components/ui/button'
 
 export function ThemeToggle() {
   const { theme, setTheme, themes } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleTheme = () => {
     // Ensure 'dark' is a valid theme before finding its index
@@ -15,6 +20,11 @@ export function ThemeToggle() {
     const currentIndex = themes.indexOf(currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);
+  }
+
+  if (!mounted) {
+    // Render a placeholder or null on the server and initial client render
+    return <Button variant="ghost" size="icon" aria-label="Toggle theme" disabled />
   }
 
   return (
