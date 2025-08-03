@@ -12,10 +12,17 @@ const navLinks = [
   { href: '/#contact', label: 'Contact us' },
 ]
 
+const useMounted = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted;
+}
+
 const Header = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('/#home')
+  const isMounted = useMounted();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,9 +89,9 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-        <ThemeToggle />
+        {isMounted && <ThemeToggle />}
         <button className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
-          {isMenuOpen ? <X /> : <Menu />}
+          {isMounted && (isMenuOpen ? <X /> : <Menu />)}
         </button>
       </div>
     </header>
