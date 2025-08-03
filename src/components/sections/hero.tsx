@@ -50,8 +50,8 @@ const TypingEffect = () => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="home">
-       <div className="home-img animate-on-load">
+    <section id="home" className="home animate-on-load">
+       <div className="home-img">
            <Image
               src="https://i.postimg.cc/BvRdbqhD/logo.webp"
               alt="HTG Huzaifa Portfolio Logo"
@@ -60,14 +60,14 @@ const HeroSection = () => {
               priority
             />
         </div>
-        <div className="home-content animate-on-load">
+        <div className="home-content">
           <h1>
             Hi, I'm <span className="text-gradient">HTG Huzaifa</span>
           </h1>
           <h3 className="typing-text-container">
             I'm a&nbsp;<TypingEffect />
           </h3>
-          <div className="button-group animate-on-load">
+          <div className="button-group">
             <Link href="/#portfolio" className="btn">
                   <span>View Websites</span>
             </Link>

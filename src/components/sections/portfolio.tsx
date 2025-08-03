@@ -29,7 +29,7 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio">
+    <section id="portfolio" className="animate-on-load">
         <div className="section-heading">
             <h2>MY PROJECTS</h2>
             <p>Here are some projects I'm proud of. Each represents a challenge I was excited to tackle.</p>
@@ -37,7 +37,7 @@ const PortfolioSection = () => {
 
       <div className="portfolio-container">
         {projects.map((project, index) => (
-          <div key={project.title} className="animate-on-load" style={{ animationDelay: `${index * 0.2}s` }}>
+          <div key={project.title} style={{ animationDelay: `${index * 0.2}s` }}>
             <ProjectCard {...project} />
           </div>
         ))}
