@@ -294,9 +294,9 @@ section {
 }
 
 .portfolio-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
     margin-top: 6rem;
 }
 
@@ -306,7 +306,6 @@ section {
     color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
-    max-width: 500px;
 }
 
 .project-card-link:hover {

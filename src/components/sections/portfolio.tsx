@@ -9,6 +9,14 @@ const projects = [
     tags: ['Next.js', 'React', 'Tailwind CSS', 'Radix UI', 'shadcn/ui', 'Lucide', 'Vercel', 'Cloudflare'],
     url: 'https://huzi.pk',
   },
+  {
+    title: 'Useful Online Tools for Modern Needs - tools.huzi.pk',
+    description: 'Explore a variety of free utility tools for developers and everyday users.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'online tools',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Google Analytics', 'Cloudflare'],
+    url: 'https://tools.huzi.pk',
+  },
 ]
 
 const PortfolioSection = () => {
@@ -16,7 +24,7 @@ const PortfolioSection = () => {
     <section id="portfolio">
         <div className="section-heading">
             <h2>MY PROJECTS</h2>
-            <p>Here is a project I'm proud of. It represents a challenge I was excited to tackle.</p>
+            <p>Here are some projects I'm proud of. Each represents a challenge I was excited to tackle.</p>
         </div>
 
       <div className="portfolio-container">
