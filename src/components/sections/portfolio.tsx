@@ -36,7 +36,7 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio">
         <div className="section-heading">
-            <h2>Featured Websites</h2>
+            <h2>MY PROJECTS</h2>
             <p>Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.</p>
         </div>
 
