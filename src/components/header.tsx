@@ -8,8 +8,8 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 
 const navLinks = [
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 const Header = () => {
