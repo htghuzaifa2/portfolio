@@ -1,5 +1,4 @@
-# Firebase Studio
+HTG HUZAIFA - prtfolio htghuzaifa.huzi.pk
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+You can customize and use this its an open source Project.
+Enjoy!
