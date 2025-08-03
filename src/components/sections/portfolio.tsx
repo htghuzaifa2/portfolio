@@ -1,34 +1,13 @@
 import ProjectCard from '@/components/project-card'
-import { Code2 } from 'lucide-react'
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured online store with Stripe integration, user authentication, and an admin dashboard.',
+    title: 'E-Commerce Website - huzi.pk',
+    description: 'A modern and performant e-commerce platform built with the latest web technologies, offering a seamless shopping experience.',
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'online store',
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'Stripe', 'Prisma'],
-  },
-  {
-    title: 'SaaS Analytics Dashboard',
-    description: 'A powerful data visualization tool for SaaS companies to track metrics and user engagement.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'dashboard chart',
-    tags: ['React', 'D3.js', 'Node.js', 'Express', 'MongoDB'],
-  },
-  {
-    title: 'Mobile Banking App',
-    description: 'A secure and intuitive mobile application for managing personal finances on the go.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'mobile app',
-    tags: ['React Native', 'TypeScript', 'Firebase', 'Redux'],
-  },
-  {
-    title: 'Project Management Tool',
-    description: 'A collaborative platform for teams to manage tasks, track progress, and communicate effectively.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'kanban board',
-    tags: ['Vue.js', 'GraphQL', 'Apollo', 'PostgreSQL', 'Docker'],
+    imageHint: 'e-commerce website',
+    tags: ['E-Commerce', 'Next.js', 'React', 'Vercel'],
+    url: 'https://huzi.pk',
   },
 ]
 
