@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'Useful Online Tools for Modern Needs - tools.huzi.pk',
     description: 'Explore a variety of free utility tools for developers and everyday users.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://i.postimg.cc/Hn7vrxW5/tools-website.webp',
     imageHint: 'online tools',
     tags: ['HTML', 'CSS', 'JavaScript', 'Google Analytics', 'Cloudflare'],
     url: 'https://tools.huzi.pk',
