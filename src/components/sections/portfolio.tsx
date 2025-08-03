@@ -17,6 +17,14 @@ const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Google Analytics', 'Cloudflare'],
     url: 'https://tools.huzi.pk',
   },
+  {
+    title: 'Tech Blog - blogs.huzi.pk',
+    description: 'A blog featuring tech guides and other useful articles.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'blogging website',
+    tags: ['Blogging', 'Tech Guides', 'Next.js', 'React'],
+    url: 'https://blogs.huzi.pk',
+  },
 ]
 
 const PortfolioSection = () => {
