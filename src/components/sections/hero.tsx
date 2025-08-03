@@ -44,7 +44,7 @@ const TypingEffect = () => {
         return () => clearInterval(typingInterval);
     }, []);
 
-    return <span className="typed-text">{typedText}</span>
+    return <span className="typed-text text-gradient">{typedText}</span>
 }
 
 
