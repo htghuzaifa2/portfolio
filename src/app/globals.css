@@ -34,10 +34,11 @@ header {
     justify-content: space-between; /* Spreads logo and nav */
     align-items: center;
     z-index: 1000; /* Ensures header is on top of other content */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
 }
 
 header.sticky { /* Styles applied via JavaScript when scrolled */
+    padding: 1rem 9%;
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
     backdrop-filter: blur(8px); /* Frosted glass effect */
@@ -142,6 +143,7 @@ section {
                 radial-gradient(circle at bottom right, rgba(183, 75, 75, 0.15) 0%, transparent 40%);
     z-index: 0; /* Puts it behind content */
     pointer-events: none; /* Allows interaction with content below */
+    animation: subtle-gradient-move 20s infinite alternate ease-in-out;
 }
 
 .home-content, .home-img {
@@ -220,6 +222,7 @@ section {
     background-color: rgba(255, 255, 255, 0.08); /* Slightly more opaque on hover */
     box-shadow: 0 0 30px rgba(183, 75, 75, 0.4), 0 0 50px rgba(183, 75, 75, 0.2); /* Enhanced shadow */
     transform: translateY(-5px) scale(1.01); /* Slight lift and scale on hover */
+    border-left-color: #ff6347;
 }
 
 /* Profile Image Styles */
@@ -343,6 +346,15 @@ section {
     }
     100% {
         box-shadow: 0 0 45px #b74b4b, 0 0 90px rgba(183, 75, 75, 0.9);
+    }
+}
+
+@keyframes subtle-gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
     }
 }
 
