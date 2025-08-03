@@ -55,8 +55,8 @@ const HeroSection = () => {
            <Image
               src="https://i.postimg.cc/BvRdbqhD/logo.webp"
               alt="HTG Huzaifa Logo"
-              width={400}
-              height={400}
+              width={150}
+              height={150}
               priority
             />
         </div>
@@ -67,9 +67,6 @@ const HeroSection = () => {
           <h3 className="typing-text-container">
             I'm a&nbsp;<TypingEffect />
           </h3>
-          <p className="description-text">
-            The path isn't always clear, but the journey itself reveals who you're meant to be. I embrace the unfolding.
-          </p>
           <div className="social-icons animate-on-load">
             <a href="https://wa.me/923251480148" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>

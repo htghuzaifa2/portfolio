@@ -17,7 +17,8 @@ html {
 body {
     width: 100%;
     min-height: 100vh; /* Ensures body takes at least full viewport height */
-    background-color: black;
+    background-color: #000000;
+    background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
     color: white;
     overscroll-behavior-y: contain; /* Prevents "bounce" on scroll */
 }
@@ -28,16 +29,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #111;
+    background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #b74b4b;
+    background: #4a4a4a;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ff6347;
+    background: #6c6c6c;
 }
 
 
@@ -58,59 +59,43 @@ header {
 
 header.sticky { /* Styles applied via JavaScript when scrolled */
     padding: 1rem 9%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
-    backdrop-filter: blur(8px); /* Frosted glass effect */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
 }
 
 .logo {
-    font-size: 3.2rem;
-    color: #b74b4b; /* Accent color for logo */
-    font-weight: 800;
+    font-size: 2.8rem;
+    color: #ffffff; 
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.5s ease;
-    text-shadow: 0 0 5px rgba(183, 75, 75, 0.5); /* Subtle text shadow */
+    transition: 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.08) rotate(2deg); /* Scale and slight rotation on hover */
-    color: #ff6347; /* Brighter accent on hover */
-    text-shadow: 0 0 10px #ff6347;
+    transform: scale(1.05);
+    color: #cccccc;
 }
 
 /* Navigation Styles */
 .navbar a {
-    font-size: 1.8rem;
-    color: white;
-    margin-left: 4rem;
+    font-size: 1.7rem;
+    color: #a1a1a1;
+    margin-left: 3.5rem;
     font-weight: 500;
     transition: 0.3s ease;
-    border-bottom: 3px solid transparent; /* Initial transparent border */
+    border-bottom: 2px solid transparent; 
     padding-bottom: 0.5rem;
-    position: relative; /* Needed for ::before pseudo-element */
-}
-
-.navbar a::before { /* Underline animation effect */
-    content: '';
-    position: absolute;
-    width: 0; /* Starts hidden */
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: #b74b4b;
-    visibility: hidden; /* Hidden until hovered/active */
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar a:hover::before,
-.navbar a.active::before {
-    visibility: visible;
-    width: 100%; /* Expands to full width on hover/active */
+    position: relative; 
 }
 
 .navbar a:hover,
 .navbar a.active {
-    color: #b74b4b; /* Accent color on hover/active */
+    color: #ffffff;
+}
+
+.navbar a.active {
+   border-bottom-color: #ffffff;
 }
 
 /* Mobile Menu Toggle (Hamburger Icon) */
@@ -134,46 +119,33 @@ header.sticky { /* Styles applied via JavaScript when scrolled */
 /* Section General Styles */
 section {
     min-height: 100vh; /* Each section takes at least full viewport height */
-    padding: 10rem 9% 2rem; /* Adjusted padding to account for fixed header */
+    padding: 12rem 9% 4rem; /* Adjusted padding to account for fixed header */
 }
 
 .section-heading {
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
 }
 
 .section-heading h2 {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     position: relative;
     display: inline-block;
     padding-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(183, 75, 75, 0.5);
-}
-
-.section-heading h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #b74b4b, #ff6347);
-    border-radius: 2px;
 }
 
 .section-heading p {
     font-size: 1.8rem;
-    color: #ccc;
+    color: #a1a1a1;
     margin-top: 1.5rem;
     max-width: 70rem;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 /* Home Section Specific Styles */
@@ -181,133 +153,86 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row; /* Default layout for larger screens */
-    gap: 8rem; /* Space between image and content */
-    background-color: black;
+    flex-direction: column; 
+    text-align: center;
+    gap: 2rem; 
     position: relative;
-    overflow: hidden; /* Ensures background effects don't spill */
-}
-
-/* Background gradient effect for the home section */
-.home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top left, rgba(183, 75, 75, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at bottom right, rgba(183, 75, 75, 0.15) 0%, transparent 40%);
-    z-index: 0; /* Puts it behind content */
-    pointer-events: none; /* Allows interaction with content below */
-    animation: subtle-gradient-move 20s infinite alternate ease-in-out;
+    overflow: hidden; 
 }
 
 .home-content, .home-img {
-    position: relative; /* Ensures content is above the pseudo-element background */
+    position: relative;
     z-index: 1;
 }
 
 .home-content {
-    flex: 1; /* Allows content to take available space */
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns text to the left */
+    align-items: center; 
 }
 
 .home-content h1 {
-    font-size: 6.5rem;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 1.2;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(183, 75, 75, 0.7); /* Glow effect for heading */
+    color: #ffffff;
 }
 
 .home-content h1 span {
-    color: #b74b4b; /* Accent color for name */
+    color: #d1d1d1;
 }
 
 /* Typing Text Animation Container */
 .typing-text-container {
-    font-size: 4rem;
-    font-weight: 700;
-    min-height: 5.5rem; /* Ensures enough vertical space for text and cursor */
-    color: white;
-    display: flex; /* Use flex to align text and cursor horizontally */
+    font-size: 2.2rem;
+    font-weight: 500;
+    min-height: 4rem;
+    color: #a1a1a1;
+    display: flex;
     align-items: baseline;
-    gap: 1rem; /* Space between "I'm a" and the typed word */
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
-/* Styling for the dynamically typed text */
 .typing-text-container .typed-text {
-    background: linear-gradient(90deg, #b74b4b, #ff6347); /* Gradient for the typed word */
-    -webkit-background-clip: text; /* Clips background to text shape */
-    background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes text transparent to show background */
-    text-shadow: 0 0 15px rgba(255, 99, 71, 0.8); /* Glow for typed text */
-    transition: all 0.1s ease-out; /* Smooth transition for character changes */
-    display: inline-block; /* Essential for text rendering with gradient */
+    color: #ffffff;
+    font-weight: 600;
 }
 
 /* Cursor animation for typing text */
 .typing-text-container .typed-text::after {
     content: "";
     display: inline-block;
-    width: 3px;
-    height: 1em;
+    width: 2px;
+    height: 0.9em;
     background-color: rgba(255, 255, 255, 0.8);
     animation: cursor 0.7s infinite step-end;
-    margin-left: 8px;
+    margin-left: 6px;
     vertical-align: baseline;
 }
 
-/* Descriptive Text Styles */
-.home-content p.description-text {
-    font-size: 1.9rem;
-    line-height: 1.7;
-    margin-bottom: 3.5rem;
-    max-width: 65rem;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
-    border-left: 5px solid #b74b4b; /* Left border highlight */
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(183, 75, 75, 0.2); /* Subtle box shadow */
-    transition: all 0.3s ease;
-}
-
-.home-content p.description-text:hover {
-    background-color: rgba(255, 255, 255, 0.08); /* Slightly more opaque on hover */
-    box-shadow: 0 0 30px rgba(183, 75, 75, 0.4), 0 0 50px rgba(183, 75, 75, 0.2); /* Enhanced shadow */
-    transform: translateY(-5px) scale(1.01); /* Slight lift and scale on hover */
-    border-left-color: #ff6347;
-}
 
 /* Profile Image Styles */
 .home-img {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
 .home-img img {
-    width: 32vw; /* Responsive width */
-    min-width: 280px; /* Minimum size */
-    max-width: 450px; /* Maximum size */
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 0.6rem solid #b74b4b; /* Thicker accent border */
-    box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7); /* Stronger glow */
-    cursor: pointer;
+    border: 0.4rem solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(120, 119, 198, 0.4);
     transition: all 0.4s ease-in-out;
-    animation: pulse 2.5s infinite alternate ease-in-out; /* Pulsing glow animation */
 }
 
 .home-img img:hover {
-    transform: scale(1.07) perspective(1000px) rotateY(5deg); /* Zoom and 3D tilt on hover */
-    box-shadow: 0 0 45px #b74b4b, 0 0 90px rgba(183, 75, 75, 0.9); /* Even stronger glow */
-    animation-play-state: paused; /* Pause pulse on hover */
+    transform: scale(1.07);
+    box-shadow: 0 0 60px rgba(120, 119, 198, 0.7);
 }
+
 
 /* Social Icons Styles */
 .social-icons {
@@ -320,135 +245,90 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: transparent;
-    border: 0.2rem solid #b74b4b;
-    font-size: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
     border-radius: 50%;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy transition */
-    color: #b74b4b;
-    box-shadow: 0 0 10px rgba(183, 75, 75, 0.4); /* Subtle initial shadow */
+    transition: all 0.3s ease;
+    color: #a1a1a1;
 }
 
 .social-icons a:hover {
-    color: black;
-    transform: translateY(-0.8rem) scale(1.2); /* Lift and scale effect */
-    background-color: #b74b4b;
-    box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.5); /* Outer and inner glow */
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
 }
 
 /* Button Styles */
 .btn {
     display: inline-block;
-    padding: 1.4rem 4rem;
-    background: linear-gradient(45deg, #b74b4b, #ff6347); /* Gradient background */
-    border-radius: 4rem;
-    font-size: 1.8rem;
-    color: black;
-    letter-spacing: 0.1rem;
+    padding: 1.2rem 3.5rem;
+    background: #1a1a1a;
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    color: #ffffff;
+    letter-spacing: 0.05rem;
     font-weight: 600;
-    border: 2px solid #b74b4b;
-    transition: all 0.5s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(183, 75, 75, 0.6); /* Initial shadow */
-    position: relative;
-    overflow: hidden; /* Hides overflow for ripple effect */
-    z-index: 1; /* Ensures button content is above ripple */
-}
-
-.btn span { /* Ensures button text is above the ripple effect */
-    position: relative;
-    z-index: 2;
-}
-
-.btn::before { /* Ripple effect on hover */
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3); /* White semi-transparent ripple */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
-    z-index: 0;
-    opacity: 0;
-}
-
-.btn:hover::before {
-    width: 300%; /* Expands to cover button */
-    height: 300%;
-    opacity: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
-    transform: scale(1.08); /* More pronounced scale */
-    background: black; /* Invert colors on hover */
-    color: #b74b4b;
-    box-shadow: 0 0 35px #b74b4b, 0 0 70px rgba(183, 75, 75, 0.9); /* Intense glow */
-    border-color: #ff6347; /* Change border color */
+    transform: scale(1.05) translateY(-3px);
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Portfolio Section Styles */
 #portfolio {
-    background-color: #080808; /* Slightly different background for depth */
+    background-color: #000000;
 }
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
+    gap: 2.5rem;
     margin-top: 6rem;
 }
 
 .project-card {
-    background: #111;
-    border: 2px solid #222;
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
     overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(183, 75, 75, 0.6), 0 0 40px rgba(183, 75, 75, 0.4);
-    border-color: #b74b4b;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .project-card .image-container {
     position: relative;
     overflow: hidden;
     aspect-ratio: 16 / 10;
+    background-color: #1a1a1a;
 }
 
 .project-card .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 .project-card:hover .image-container img {
-    transform: scale(1.1);
-}
-
-.project-card .image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
-    opacity: 0.8;
-    transition: opacity 0.4s ease;
-}
-
-.project-card:hover .image-container::after {
-    opacity: 1;
+    transform: scale(1.05);
 }
 
 .project-card .project-content {
@@ -456,15 +336,15 @@ section {
 }
 
 .project-card .project-content h3 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
-    color: #b74b4b;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .project-card .project-content p {
-    font-size: 1.6rem;
-    color: #ccc;
+    font-size: 1.5rem;
+    color: #a1a1a1;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -472,43 +352,38 @@ section {
 .project-card .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .project-card .project-tags span {
-    background-color: #222;
-    color: #b74b4b;
+    background-color: #1c1c1c;
+    color: #a1a1a1;
     padding: 0.5rem 1.2rem;
     border-radius: 2rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.project-card:hover .project-tags span {
-    background-color: #b74b4b;
-    color: black;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Contact Section Styles */
 #contact {
-    background: black;
+    background-color: #000000;
 }
 
 .contact-container {
-    max-width: 80rem;
+    max-width: 70rem;
     margin: 6rem auto 0;
-    background-color: #111;
+    background-color: #09090b;
     padding: 4rem;
     border-radius: 2rem;
-    border: 2px solid #222;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .contact-container form {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .contact-container .input-group {
@@ -519,8 +394,8 @@ section {
 .contact-container textarea {
     width: 100%;
     padding: 1.5rem;
-    background-color: #1a1a1a;
-    border: 2px solid #333;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 1rem;
     color: white;
     font-size: 1.6rem;
@@ -529,22 +404,22 @@ section {
 
 .contact-container input:focus,
 .contact-container textarea:focus {
-    border-color: #b74b4b;
-    box-shadow: 0 0 15px rgba(183, 75, 75, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(120, 119, 198, 0.2);
 }
 
 .contact-container textarea {
-    min-height: 15rem;
+    min-height: 14rem;
     resize: vertical;
 }
 
 .contact-container .btn {
     align-self: center;
-    width: 50%;
+    width: auto;
 }
 
 .error {
-    color: #ff6347;
+    color: #ff7b7b;
     font-size: 1.4rem;
     margin-top: 0.5rem;
     padding-left: 0.5rem;
@@ -552,10 +427,10 @@ section {
 
 /* Footer Styles */
 footer {
-    background-color: #080808;
-    padding: 3rem 9%;
+    background-color: #000000;
+    padding: 4rem 9% 3rem;
     text-align: center;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
@@ -566,8 +441,8 @@ footer {
 }
 
 .footer-text {
-    font-size: 1.6rem;
-    color: #aaa;
+    font-size: 1.5rem;
+    color: #a1a1a1;
 }
 
 .footer-social-icons {
@@ -579,150 +454,106 @@ footer {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4rem;
+    height: 4rem;
     background-color: transparent;
-    border: 2px solid #b74b4b;
-    font-size: 2.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
     border-radius: 50%;
-    transition: all 0.4s ease;
-    color: #b74b4b;
+    transition: all 0.3s ease;
+    color: #a1a1a1;
 }
 
 .footer-social-icons a:hover {
-    color: black;
-    background-color: #b74b4b;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-5px);
-    box-shadow: 0 0 20px #b74b4b;
 }
 
 
 /* Keyframe Animations */
 @keyframes cursor {
-    0%, 100% { opacity: 1; } /* Cursor visible */
-    50% { opacity: 0; } /* Cursor invisible (blink) */
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 30px #b74b4b, 0 0 60px rgba(183, 75, 75, 0.7);
-    }
-    100% {
-        box-shadow: 0 0 45px #b74b4b, 0 0 90px rgba(183, 75, 75, 0.9);
-    }
-}
-
-@keyframes subtle-gradient-move {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-/* Entrance Animation for elements on page load */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(20px); /* Starts slightly below */
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Ends at original position */
+        transform: translateY(0);
     }
 }
 
-.animate-on-load { /* Class applied to elements that should animate on load */
-    opacity: 0; /* Hidden initially */
-    animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+.animate-on-load {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Animation delays for staggered entrance */
-.home-content.animate-on-load {
-    animation-delay: 0.2s;
-}
-.home-img.animate-on-load {
-    animation-delay: 0.4s;
-}
-.social-icons.animate-on-load {
-    animation-delay: 0.6s;
-}
-.btn.animate-on-load {
-    animation-delay: 0.8s;
-}
+.home-content.animate-on-load { animation-delay: 0.2s; }
+.home-img.animate-on-load { animation-delay: 0s; }
+.social-icons.animate-on-load { animation-delay: 0.4s; }
+.btn.animate-on-load { animation-delay: 0.6s; }
 
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     html {
-        font-size: 55%; /* Reduce base font size for larger tablets */
+        font-size: 55%;
     }
-    header {
-        padding: 1.5rem 5%;
-    }
-    section {
-        padding: 10rem 5% 2rem;
-    }
-    .home {
-        gap: 6rem;
+    header, section, footer {
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
-@media (max-width: 991px) { /* Tablets and smaller laptops */
+@media (max-width: 991px) {
     .menu-icon {
-        display: block; /* Show hamburger icon */
+        display: block;
     }
 
     .navbar {
         position: absolute;
-        top: 100%; /* Positions nav below header */
-        right: -100%; /* Hides nav off-screen initially */
-        width: 65%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
-        border-bottom-left-radius: 2rem;
+        top: 100%;
+        right: -100%;
+        width: 50%;
         padding: 2rem 0;
-        background-color: #161616;
-        transition: right 0.4s ease-in-out; /* Smooth slide-in transition */
+        background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom-left-radius: 1rem;
+        transition: right 0.4s ease-in-out;
         display: flex;
-        flex-direction: column; /* Stacks nav links vertically */
+        flex-direction: column;
         align-items: center;
     }
 
     #menu-toggle:checked ~ .navbar {
-        right: 0; /* Slides nav into view */
+        right: 0;
     }
 
     .navbar a {
         display: block;
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin: 1.5rem 0;
-        padding: 1rem 2rem;
+        padding: 1rem;
         width: 100%;
         text-align: center;
-        border-bottom: none; /* Remove underline for mobile menu items */
+        border-bottom: none;
     }
-
+    
     .navbar a:hover,
     .navbar a.active {
-        color: black;
-        background-color: #b74b4b;
-        border-radius: 0.5rem;
+       background-color: rgba(255,255,255,0.05);
     }
-    .navbar a::before {
-        display: none;
-    }
-
+    
     .home {
-        flex-direction: column-reverse; /* Stacks content, image on top */
-        text-align: center;
-        gap: 5rem;
-        padding-top: 12rem;
-    }
-
-    .home-content {
-        align-items: center; /* Centers text content on mobile */
+      padding-top: 15rem;
     }
 
     .home-content h1 {
@@ -730,91 +561,48 @@ footer {
     }
 
     .typing-text-container {
-        font-size: 4rem;
-        justify-content: center;
-    }
-
-    .home-content p.description-text {
-        font-size: 1.8rem;
-        padding: 1.5rem;
-        border-left: none; /* Remove left border */
-        border-top: 3px solid #b74b4b; /* Add top border for mobile */
-        max-width: 90%;
+        font-size: 2rem;
     }
 
     .home-img img {
-        width: 75vw;
-        margin-top: 4rem;
-    }
-    .social-icons {
-        margin-top: 2.5rem;
-        justify-content: center;
-    }
-    footer {
-        padding: 2rem 5%;
+      width: 130px;
+      height: 130px;
     }
 }
 
-@media (max-width: 768px) { /* Smaller tablets and large phones */
+@media (max-width: 768px) {
     .section-heading h2 {
-        font-size: 3.8rem;
-    }
-    .home-content h1 {
-        font-size: 4.5rem;
-    }
-    .typing-text-container {
         font-size: 3.5rem;
     }
-    .home-content p.description-text {
-        font-size: 1.7rem;
+    .home-content h1 {
+        font-size: 4.8rem;
+    }
+    .typing-text-container {
+        font-size: 1.8rem;
     }
     .home-img img {
-        width: 85vw;
-    }
-    .social-icons a {
-        width: 4.5rem;
-        height: 4.5rem;
-        font-size: 2.2rem;
+        width: 120px;
+        height: 120px;
     }
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 480px) { /* Small phones */
+@media (max-width: 480px) {
     html {
-        font-size: 48%; /* Even smaller base font */
-    }
-    header {
-        padding: 1.5rem 3%;
-    }
-    .section-heading h2 {
-        font-size: 3.5rem;
+        font-size: 50%;
     }
     .home-content h1 {
-        font-size: 4rem;
+        font-size: 4.2rem;
     }
     .typing-text-container {
-        font-size: 3rem;
-    }
-    .btn {
-        padding: 1.2rem 3rem;
         font-size: 1.6rem;
-    }
-    .home-img img {
-        width: 90vw;
-        min-width: 250px; /* Ensures image isn't too small */
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
     }
     .contact-container {
         padding: 3rem;
-    }
-    .contact-container .btn {
-        width: 100%;
-    }
-    .footer-content {
-        gap: 1.5rem;
-    }
-    .footer-text {
-        font-size: 1.4rem;
     }
 }
