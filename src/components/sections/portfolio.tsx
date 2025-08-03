@@ -20,7 +20,7 @@ const projects = [
   {
     title: 'Tech Blog - blogs.huzi.pk',
     description: 'A blog featuring tech guides and other useful articles.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://i.postimg.cc/gkbrrTNL/blogs-website.webp',
     imageHint: 'blogging website',
     tags: ['Blogging', 'Tech Guides', 'Next.js', 'React'],
     url: 'https://blogs.huzi.pk',
