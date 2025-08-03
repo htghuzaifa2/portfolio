@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useToast } from '@/hooks/use-toast'
-import { Mail, Send } from 'lucide-react'
+import { MessageCircle, Send } from 'lucide-react'
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -29,12 +29,13 @@ const ContactSection = () => {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // This form does not send an email.
-    // It just shows a success message.
-    console.log(values)
+    const whatsappUrl = `https://wa.me/923251480148?text=${encodeURIComponent(
+      `Hello, my name is ${values.name}. My email is ${values.email}. \n\n${values.message}`
+    )}`
+    window.open(whatsappUrl, '_blank')
     toast({
-      title: 'Message Sent!',
-      description: 'Thanks for reaching out. I will get back to you shortly.',
+      title: 'Redirecting to WhatsApp...',
+      description: 'Your message is ready to be sent.',
     })
     form.reset()
   }
@@ -43,12 +44,17 @@ const ContactSection = () => {
     <section id="contact" className="w-full py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <Mail className="mx-auto h-12 w-12 text-primary" />
+          <MessageCircle className="mx-auto h-12 w-12 text-primary" />
           <h2 className="mt-4 font-headline text-3xl font-bold tracking-tight sm:text-4xl">Get In Touch</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Have a project in mind or just want to say hello? Drop me a line at{' '}
-            <a href="mailto:huzaifa@huzi.pk" className="font-medium text-primary underline-offset-4 hover:underline">
-              huzaifa@huzi.pk
+            Have a project in mind or just want to say hello? Send me a message on{' '}
+            <a
+              href="https://wa.me/923251480148"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              WhatsApp
             </a>
             {' '}or use the form below.
           </p>
@@ -57,7 +63,7 @@ const ContactSection = () => {
         <div className="mx-auto mt-12 max-w-xl">
           <Card className="fade-in-up">
             <CardHeader>
-              <CardTitle>Contact Form</CardTitle>
+              <CardTitle>Contact on WhatsApp</CardTitle>
               <CardDescription>Fill out the form and I'll get back to you as soon as possible.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -104,7 +110,7 @@ const ContactSection = () => {
                   />
                   <Button type="submit" className="w-full">
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    Send on WhatsApp
                   </Button>
                 </form>
               </Form>

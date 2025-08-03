@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { ArrowDown, Mail } from 'lucide-react'
+import { ArrowDown, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
 const HeroSection = () => {
@@ -28,15 +28,15 @@ const HeroSection = () => {
           </p>
           <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: '0.6s' }}>
             <Button size="lg" asChild className="transition-transform duration-300 hover:-translate-y-1">
-              <Link href="/portfolio">
+              <Link href="/#portfolio">
                 View My Work
                 <ArrowDown className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild className="transition-transform duration-300 hover:-translate-y-1">
-              <Link href="/contact">
+              <Link href="https://wa.me/923251480148" target="_blank" rel="noopener noreferrer">
                 Contact Me
-                <Mail className="ml-2 h-5 w-5" />
+                <MessageCircle className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
