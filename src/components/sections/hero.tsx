@@ -7,7 +7,13 @@ import { Instagram, Youtube } from 'lucide-react'
 
 const TypingEffect = () => {
     const [typedText, setTypedText] = useState('')
-    const words = ["The Only Person.", "Who Destroy", "Faizi in FF.", "HTG HUZAIFA", "THE GOAT OF ALL TIME"];
+    const words = [
+        "Web Developer",
+        "SEO Optimization",
+        "Website Performance & Responsiveness",
+        "E-Commerce website builder",
+        "next-js react sattics sites"
+    ];
     
     useEffect(() => {
         let wordIndex = 0;
