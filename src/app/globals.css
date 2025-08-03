@@ -17,10 +17,29 @@ html {
 body {
     width: 100%;
     min-height: 100vh; /* Ensures body takes at least full viewport height */
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
     background-color: black;
     color: white;
+    overscroll-behavior-y: contain; /* Prevents "bounce" on scroll */
 }
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b74b4b;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6347;
+}
+
 
 /* Header Styles */
 header {
