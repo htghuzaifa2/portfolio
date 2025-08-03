@@ -9,10 +9,10 @@ const TypingEffect = () => {
     const [typedText, setTypedText] = useState('')
     const words = [
         "Web Developer",
-        "SEO Optimization",
-        "Website Performance & Responsiveness",
-        "E-Commerce website builder",
-        "next-js react sattics sites"
+        "SEO Optimization Specialist",
+        "Website Performance & Responsiveness Expert",
+        "E-Commerce website builder Expert",
+        "next-js react sattics sites Expert"
     ];
     
     useEffect(() => {
