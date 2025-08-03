@@ -65,7 +65,7 @@ const Header = () => {
 
   return (
     <header className={cn({ 'sticky': hasScrolled })}>
-      <Link href="/#home" className="logo">
+      <Link href="/#home" className="logo" onClick={handleLinkClick}>
         <span className="text-gradient">HTG Huzaifa</span>
       </Link>
       
@@ -83,7 +83,7 @@ const Header = () => {
           ))}
         </nav>
         <ThemeToggle />
-        <button id="menu-toggle" className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
           {isMenuOpen ? <X /> : <Menu />}
         </button>
       </div>

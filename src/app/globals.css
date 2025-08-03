@@ -141,10 +141,6 @@ header.sticky {
 }
 
 /* Mobile Menu Toggle (Hamburger Icon) */
-#menu-toggle {
-    display: none; /* Hide checkbox */
-}
-
 .menu-icon {
     font-size: 3.5rem;
     color: var(--primary);
@@ -630,25 +626,23 @@ footer {
     }
 
     .navbar {
-        display: none; /* Hide navbar by default */
         position: fixed;
         top: 0;
-        left: 0;
+        left: -100%;
         width: 100%;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         z-index: 1000;
-        transition: transform 0.3s ease-in-out;
-        transform: translateY(-100%);
+        transition: left 0.3s ease-in-out;
     }
 
     .navbar.open {
-        display: flex; /* Show navbar when menu is open */
-        transform: translateY(0);
+        left: 0;
     }
 
     .header-right {
