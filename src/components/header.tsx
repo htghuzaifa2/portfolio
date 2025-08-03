@@ -65,9 +65,9 @@ const Header = () => {
 
   return (
     <header className={cn({ 'sticky': hasScrolled })}>
-      <Link href="/#home" className="logo" onClick={handleLinkClick}>
+      <a href="/" className="logo">
         <span className="text-gradient">HTG Huzaifa</span>
-      </Link>
+      </a>
       
       <div className="header-right">
         <nav className={cn('navbar', { 'open': isMenuOpen })}>

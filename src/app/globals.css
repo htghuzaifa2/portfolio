@@ -242,7 +242,6 @@ section {
 }
 
 .typing-text-container .typed-text {
-    color: var(--primary);
     font-weight: 600;
 }
 
@@ -646,7 +645,10 @@ footer {
     }
 
     .header-right {
-        z-index: 1001; /* Ensure menu button and theme toggle are on top */
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        z-index: 1001;
     }
 
     .navbar a {
@@ -654,7 +656,8 @@ footer {
         font-size: 3rem;
         margin: 2rem 0;
         padding: 1rem;
-        color: var(--primary);
+        color: hsl(0 0% 98%);
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
     
     .navbar a:hover,
