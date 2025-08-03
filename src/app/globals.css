@@ -12,12 +12,14 @@
 html {
     font-size: 62.5%; /* Base font size for rem units (1rem = 10px) */
     scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    overflow-y: hidden;
 }
 
 body {
     width: 100%;
     min-height: 100vh; /* Ensures body takes at least full viewport height */
     overflow-x: hidden; /* Prevents horizontal scrollbar */
+    overflow-y: hidden;
     background-color: black;
     color: white;
 }
