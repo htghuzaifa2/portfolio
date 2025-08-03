@@ -343,6 +343,11 @@ section {
     background-color: var(--accent);
 }
 
+.btn-rgb-animated {
+    animation: rgb-glow 2s linear infinite;
+}
+
+
 /* Portfolio Section Styles */
 #portfolio {
     background-color: var(--background);
@@ -558,6 +563,25 @@ footer {
         transform: translateY(0);
     }
 }
+
+@keyframes rgb-glow {
+    0% {
+        box-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+    }
+    25% {
+        box-shadow: 0 0 5px #00ffde, 0 0 10px #00ffde;
+    }
+    50% {
+        box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+    75% {
+        box-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+    }
+    100% {
+        box-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+    }
+}
+
 
 .animate-on-load {
     opacity: 0;

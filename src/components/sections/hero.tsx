@@ -71,7 +71,7 @@ const HeroSection = () => {
             <Link href="/#portfolio" className="btn">
                   <span>View Websites</span>
             </Link>
-            <a href="https://wa.me/923251480148" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            <a href="https://wa.me/923251480148" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-rgb-animated">
                   <span>Contact on WhatsApp</span>
             </a>
           </div>
