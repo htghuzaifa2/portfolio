@@ -22,7 +22,6 @@ export function ThemeToggle() {
       {theme === 'light' && <Sun className="h-[1.8rem] w-[1.8rem] transition-all" />}
       {theme === 'dark' && <Moon className="h-[1.8rem] w-[1.8rem] transition-all" />}
       {theme === 'neon' && <Sparkles className="h-[1.8rem] w-[1.8rem] transition-all" />}
-      <span className="sr-only">Toggle theme</span>
     </Button>
   )
 }
