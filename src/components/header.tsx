@@ -48,7 +48,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="text-[3.2rem] text-primary font-extrabold cursor-pointer transition-all duration-500 ease-in-out hover:scale-105 hover:rotate-2 hover:text-secondary [text-shadow:0_0_5px_hsl(var(--primary)/0.5)] hover:[text-shadow:0_0_10px_hsl(var(--secondary))]">
-          Huzaifa
+          HTG Huzaifa
         </Link>
         <div className="md:hidden">
             <button

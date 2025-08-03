@@ -49,7 +49,7 @@ const HeroSection = () => {
        <div className="home container mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-12 text-center md:text-left">
         <div className="home-content z-10 flex-1 flex flex-col items-center md:items-start animate-on-load" style={{ animationDelay: '0.2s' }}>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4 [text-shadow:0_0_10px_hsl(var(--primary)/0.7)]">
-            Hi, It's <span className="text-primary">Huzaifa</span>
+            Hi, It's <span className="text-primary">HTG Huzaifa</span>
           </h1>
           <h3 className="typing-text text-4xl sm:text-5xl font-bold min-h-[4rem] mb-8">
             I'm a <TypingEffect />

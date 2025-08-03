@@ -18,10 +18,32 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+const siteUrl = 'https://htghuzaifa.huzi.pk';
 
 export const metadata: Metadata = {
-  title: 'HTG Huzaifa Portfolio',
-  description: 'The professional portfolio of HTG Huzaifa, a creative developer.',
+  title: 'HTG Huzaifa - Portfolio',
+  description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: 'website',
+    url: siteUrl,
+    title: 'HTG Huzaifa - Portfolio',
+    description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
+    images: [
+      {
+        url: 'https://i.postimg.cc/BvRdbqhD/logo.webp',
+        width: 400,
+        height: 400,
+        alt: 'HTG Huzaifa Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HTG Huzaifa - Portfolio',
+    description: 'The professional portfolio of HTG Huzaifa, a creative developer and the GOAT of all time.',
+    images: [`${siteUrl}/og-image.png`],
+  },
 };
 
 export default function RootLayout({
