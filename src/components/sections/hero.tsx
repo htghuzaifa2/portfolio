@@ -19,6 +19,7 @@ const TypingEffect = () => {
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+        let timeoutId: NodeJS.Timeout;
 
         const type = () => {
             const currentWord = words[wordIndex];
@@ -32,16 +33,26 @@ const TypingEffect = () => {
             }
 
             if (!isDeleting && charIndex === currentWord.length) {
-                setTimeout(() => isDeleting = true, 2000);
+                timeoutId = setTimeout(() => {
+                  isDeleting = true;
+                  requestAnimationFrame(type);
+                }, 1500);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
+                timeoutId = setTimeout(() => {
+                  requestAnimationFrame(type);
+                }, 300);
+            } else {
+               timeoutId = setTimeout(() => {
+                 requestAnimationFrame(type);
+               }, isDeleting ? 60 : 100);
             }
         };
 
-        const typingInterval = setInterval(type, isDeleting ? 80 : 120);
+        requestAnimationFrame(type)
 
-        return () => clearInterval(typingInterval);
+        return () => clearTimeout(timeoutId);
     }, []);
 
     return <span className="typed-text text-gradient">{typedText}</span>
