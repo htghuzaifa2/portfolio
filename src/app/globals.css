@@ -102,6 +102,9 @@ header.sticky {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 2.8rem;
     color: var(--primary); 
     font-weight: 700;

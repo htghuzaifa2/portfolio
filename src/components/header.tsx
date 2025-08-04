@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -73,6 +74,13 @@ const Header = () => {
   return (
     <header className={cn({ 'sticky': hasScrolled })}>
       <a href="/" className="logo">
+         <Image
+            src="https://i.postimg.cc/BvRdbqhD/logo.webp"
+            alt="HTG Huzaifa Portfolio Logo"
+            width={40}
+            height={40}
+            priority
+          />
         <span className="text-gradient">HTG Huzaifa</span>
       </a>
       
