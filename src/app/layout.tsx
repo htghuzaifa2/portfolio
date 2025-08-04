@@ -28,7 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'HTG Huzaifa Portfolio - htghuzaifa.huzi.pk',
+    title: 'HTG Huzaifa Portfolio',
+    siteName: 'HTG Huzaifa Portfolio',
     description: 'Welcome to the official portfolio of HTG Huzaifa. A creative developer specializing in Next.js, React, and modern web performance.',
     images: [
       {
@@ -44,6 +45,11 @@ export const metadata: Metadata = {
     title: 'HTG Huzaifa Portfolio - htghuzaifa.huzi.pk',
     description: 'Welcome to the official portfolio of HTG Huzaifa. A creative developer specializing in Next.js, React, and modern web performance.',
     images: ['https://i.postimg.cc/BvRdbqhD/logo.webp'],
+  },
+  icons: {
+    icon: 'https://i.postimg.cc/BvRdbqhD/logo.webp',
+    shortcut: 'https://i.postimg.cc/BvRdbqhD/logo.webp',
+    apple: 'https://i.postimg.cc/BvRdbqhD/logo.webp',
   },
 };
 
