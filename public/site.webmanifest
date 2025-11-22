@@ -1,0 +1,16 @@
+{
+    "name": "HTG Huzaifa Portfolio",
+    "short_name": "HTG Huzaifa",
+    "description": "Full-Stack Developer crafting intelligent, AI-powered web apps and stunning digital experiences.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#00f3ff",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}
