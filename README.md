@@ -40,7 +40,7 @@ Font: Outfit (Google Fonts)
 This project is open-source.
 Use it, customize it, remix it — no restrictions. 🎉
 
-🙏 Credits
+Credits :
 
 Created by HTG HUZAIFA
 🌐 Portfolio: https://htghuzaifa.huzi.pk
