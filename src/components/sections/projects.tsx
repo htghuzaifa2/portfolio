@@ -18,7 +18,7 @@ const projects = [
         title: "The Poetry of Allama Iqbal",
         description: "A digital collection of poetry with elegant typography and smooth navigation.",
         tech: ["Next.js", "React", "Tailwind CSS", "Webpack"],
-        link: "#",
+        link: "https://allamaiqbal.huzi.pk/",
         color: "#bc13fe"
     },
     {
